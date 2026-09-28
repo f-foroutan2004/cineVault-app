@@ -3,6 +3,7 @@ import allHerFault from "../assets/All_Her_Fault_Poster.jpg";
 import myFault from "../assets/images.jpg";
 import yourFault from "../assets/images (1).jpg";
 import iWillFindYou from "../assets/images (2).jpg";
+import moneyHeist from "../assets/images (3).jpg";
 
 export const movies: Movie[] = [
   {
@@ -38,6 +39,15 @@ export const movies: Movie[] = [
     genre: "drama",
     rating: 9.5,
     image: iWillFindYou,
+    watched: true,
+    inWatchList: true,
+  },
+  {
+    id: 5,
+    title: "money Heist",
+    genre: "action",
+    rating: 10,
+    image: moneyHeist,
     watched: true,
     inWatchList: true,
   },

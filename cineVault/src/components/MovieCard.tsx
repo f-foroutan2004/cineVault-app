@@ -5,36 +5,61 @@ interface MovieCardProps {
   movie: Movie;
   onToggleWatched: (id: number) => void;
   onToggleWatchList: (id: number) => void;
+  onSelectMovie: (movie: Movie) => void;
 }
 
 function MovieCard({
   movie,
   onToggleWatched,
   onToggleWatchList,
+  onSelectMovie,
 }: MovieCardProps) {
-  function handleWatchClick() {
+  function handleWatchClick(event: React.MouseEvent<HTMLButtonElement>) {
+    event.stopPropagation();
     onToggleWatched(movie.id);
   }
-  function handleWatchListClick() {
-   onToggleWatchList(movie.id);
+
+  function handleWatchListClick(
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) {
+    event.stopPropagation();
+    onToggleWatchList(movie.id);
   }
 
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={() => onSelectMovie(movie)}
+    >
       <div className="upPart">
-        <img src={movie.image} alt="" />
+        <img src={movie.image} alt={movie.title} />
+
         <h2>{movie.title}</h2>
+
         <p>{movie.genre}</p>
-        <p>{movie.rating}</p>
-        <span>{movie.watched ? "watched" : "not watched"}</span>
+
+        <p>⭐ {movie.rating}</p>
+
+        <span>
+          {movie.watched ? "watched" : "not watched"}
+        </span>
       </div>
 
       <div className="buttons">
-        <button className="watchBtn" onClick={handleWatchClick}>
+        <button
+          className="watchBtn"
+          onClick={handleWatchClick}
+        >
           {movie.watched ? "unwatch" : "watch"}
         </button>
-        <button className="watchListBtn" onClick={handleWatchListClick}>
-          {movie.inWatchList ? "remove from list" : "add to watch list"}
+
+        <button
+          className="watchListBtn"
+          onClick={handleWatchListClick}
+        >
+          {movie.inWatchList
+            ? "remove from list"
+            : "add to watch list"}
         </button>
       </div>
     </div>
