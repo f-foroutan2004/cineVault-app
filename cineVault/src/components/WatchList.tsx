@@ -6,12 +6,14 @@ interface WatchListProps {
   movies: Movie[];
   onToggleWatched: (id: number) => void;
   onToggleWatchList: (id: number) => void;
+  onSelectMovie: (movie: Movie) => void;
 }
 
 function WatchList({
   movies,
   onToggleWatched,
   onToggleWatchList,
+  onSelectMovie,
 }: WatchListProps) {
   return (
     <>
@@ -25,6 +27,7 @@ function WatchList({
               movie={movie}
               onToggleWatched={onToggleWatched}
               onToggleWatchList={onToggleWatchList}
+              onSelectMovie={onSelectMovie}
             />
           ))}
         </div>

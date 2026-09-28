@@ -24,9 +24,7 @@ function App() {
   function handleToggleWatchList(id: number) {
     setMovieList((prevMovies) =>
       prevMovies.map((movie) =>
-        movie.id === id
-          ? { ...movie, inWatchList: !movie.inWatchList }
-          : movie,
+        movie.id === id ? { ...movie, inWatchList: !movie.inWatchList } : movie,
       ),
     );
   }
@@ -68,10 +66,7 @@ function App() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
-        <button
-          className="clearSearchBtn"
-          onClick={() => setSearchTerm("")}
-        >
+        <button className="clearSearchBtn" onClick={() => setSearchTerm("")}>
           clear
         </button>
       </div>
@@ -100,6 +95,7 @@ function App() {
         movies={watchListMovies}
         onToggleWatched={handleToggleWatched}
         onToggleWatchList={handleToggleWatchList}
+        onSelectMovie={setSelectedMovie}
       />
 
       {selectedMovie && (
