@@ -55,7 +55,6 @@
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -108,4 +107,30 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+
+.cards{
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.watchBtn, .watchListBtn{
+  border: none;
+  display: inline;
+  background-color: rgb(72, 109, 72);
+  border-radius:10px;
+  text-align: center;
+  padding: 10px;
+}
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
 }
