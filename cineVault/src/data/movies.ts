@@ -1,4 +1,8 @@
 import type { Movie } from "../types/movie";
+import allHerFault from "../assets/All_Her_Fault_Poster.jpg";
+import myFault from "../assets/images.jpg";
+import yourFault from "../assets/images (1).jpg";
+import iWillFindYou from "../assets/images (2).jpg";
 
 export const movies: Movie[] = [
   {
@@ -6,7 +10,7 @@ export const movies: Movie[] = [
     title: "all her fault",
     genre: "drama",
     rating: 10,
-    image: "...",
+    image: allHerFault,
     watched: true,
     inWatchList: true,
   },
@@ -15,7 +19,7 @@ export const movies: Movie[] = [
     title: "my fault",
     genre: "romantic",
     rating: 7,
-    image: "...",
+    image: myFault,
     watched: true,
     inWatchList: false,
   },
@@ -24,7 +28,7 @@ export const movies: Movie[] = [
     title: "your fault",
     genre: "romantic",
     rating: 8,
-    image: "...",
+    image: yourFault,
     watched: false,
     inWatchList: false,
   },
@@ -33,7 +37,7 @@ export const movies: Movie[] = [
     title: "i will find you",
     genre: "drama",
     rating: 9.5,
-    image: "...",
+    image: iWillFindYou,
     watched: true,
     inWatchList: true,
   },

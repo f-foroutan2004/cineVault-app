@@ -2,6 +2,7 @@ import { useState } from "react";
 import { movies } from "./data/movies";
 import MovieCard from "./components/MovieCard";
 import type { Movie } from "./types/movie";
+import WatchList from "./components/WatchList";
 
 function App() {
   const [movieList, setMovieList] = useState<Movie[]>(movies);
@@ -25,6 +26,7 @@ function App() {
   }
 
   const watchedMovies = movieList.filter((movie) => movie.watched);
+
   const watchListMovies = movieList.filter((movie) => movie.inWatchList);
 
   const filteredMovies = movieList.filter(
@@ -35,43 +37,44 @@ function App() {
 
   return (
     <>
-      <select
-        name=""
-        id=""
-        value={selectedGenre}
-        onChange={(e) => setSelectedGenre(e.target.value)}
-      >
-        <option value="all">All genres</option>
-        <option value="drama">Drama</option>
-        <option value="romantic">Romantic</option>
-      </select>
-      <input
-        type="text"
-        placeholder="search movies..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <div>
-        <span>watched movies: {watchedMovies.length}</span>
+      <div className="controls">
+        <select
+          value={selectedGenre}
+          onChange={(e) => setSelectedGenre(e.target.value)}
+        >
+          <option value="all">All genres</option>
+          <option value="drama">Drama</option>
+          <option value="romantic">Romantic</option>
+        </select>
+
+        <input
+          type="text"
+          placeholder="Search movies..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
-      {filteredMovies.map((movie) => (
-        <MovieCard
-          movie={movie}
-          key={movie.id}
-          onToggleWatched={handleToggleWatched}
-          onToggleWatchList={handleToggleWatchList}
-        />
-      ))}
-      <span>WATCH LIST ({watchListMovies.length})</span>
-      {watchListMovies.map((movie) => (
-        <MovieCard
-          movie={movie}
-          key={movie.id}
-          onToggleWatched={handleToggleWatched}
-          onToggleWatchList={handleToggleWatchList}
-        />
-      ))}
+      <div className="stats">
+        <span>Watched movies: {watchedMovies.length}</span>
+      </div>
+
+      <div className="movie-grid">
+        {filteredMovies.map((movie) => (
+          <MovieCard
+            movie={movie}
+            key={movie.id}
+            onToggleWatched={handleToggleWatched}
+            onToggleWatchList={handleToggleWatchList}
+          />
+        ))}
+      </div>
+
+      <WatchList
+        movies={watchListMovies}
+        onToggleWatched={handleToggleWatched}
+        onToggleWatchList={handleToggleWatchList}
+      />
     </>
   );
 }

@@ -20,8 +20,8 @@ function MovieCard({
   }
 
   return (
-    <div className="cards">
-      <div className="card">
+    <div className="card">
+      <div className="upPart">
         <img src={movie.image} alt="" />
         <h2>{movie.title}</h2>
         <p>{movie.genre}</p>
@@ -34,7 +34,7 @@ function MovieCard({
           {movie.watched ? "unwatch" : "watch"}
         </button>
         <button className="watchListBtn" onClick={handleWatchListClick}>
-          {movie.inWatchList ? "remove" : "add"}
+          {movie.inWatchList ? "remove from list" : "add to watch list"}
         </button>
       </div>
     </div>
